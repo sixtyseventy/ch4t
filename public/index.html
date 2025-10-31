@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ch4t 💬</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>💬 ch4t</h1>
+
+  <div id="auth">
+    <form action="/signup" method="POST">
+      <input name="username" placeholder="Username">
+      <input name="password" type="password" placeholder="Password">
+      <button>Sign Up</button>
+    </form>
+
+    <form action="/login" method="POST">
+      <input name="username" placeholder="Username">
+      <input name="password" type="password" placeholder="Password">
+      <button>Login</button>
+    </form>
+
+    <form action="/logout" method="POST"><button>Logout</button></form>
+  </div>
+
+  <div id="chat">
+    <div id="messages"></div>
+    <input id="msg" placeholder="Type a message...">
+    <button id="send">Send</button>
+  </div>
+
+  <a href="/forum" class="link">Go to Forum</a>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="client.js"></script>
+</body>
+</html>
