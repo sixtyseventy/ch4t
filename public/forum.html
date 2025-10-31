@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ch4t Forums 📰</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>📰 Forums</h1>
+
+  <form action="/forum-post" method="POST">
+    <textarea name="content" placeholder="Write something cool..."></textarea>
+    <button>Post</button>
+  </form>
+
+  <form action="/announcement" method="POST">
+    <textarea name="content" placeholder="Only vorpbleh can post announcements"></textarea>
+    <button>Post Announcement</button>
+  </form>
+
+  <h2>Announcements 🔥</h2>
+  <div id="announcements"></div>
+
+  <h2>Forum Posts 💬</h2>
+  <div id="posts"></div>
+
+  <a href="/" class="link">← Back to Chat</a>
+
+  <script>
+    fetch("/data.json")
+      .then(r => r.json())
+      .then(data => {
+        const ann = document.getElementById("announcements");
+        const posts = document.getElementById("posts");
+        data.announcements.forEach(a => {
+          ann.innerHTML += `<p><b>${a.author}:</b> ${a.content}</p>`;
+        });
+        data.posts.forEach(p => {
+          posts.innerHTML += `<p><b>${p.author}:</b> ${p.content}</p>`;
+        });
+      });
+  </script>
+</body>
+</html>
